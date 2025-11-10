@@ -1,6 +1,3 @@
-Got it. Here is the updated code with the `name` and `suggestedMetric` fields for `FOCUS_SOCR` corrected to "State of Certified Range".
-
-```json
 { "commands": [
 { "hdr": "7E4", "rax": "7EC", "cmd": {"22": "0C03"}, "freq": 2, "dbgfilter": { "to": 2005, "years": [2007, 2008, 2010, 2011, 2012, 2014, 2015, 2016, 2018, 2019, 2020], "from": 2022 },
   "signals": [
