@@ -3,7 +3,7 @@
   "signals": [
     {"id": "FOCUS_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Battery State of Charge", "suggestedMetric": "batteryStateOfCharge"}
   ]},
-{ "hdr": "720", "rax": "728", "cmd": {"22": "6185"}, "freq": 1, "dbgfilter": { "to": 2005, "years": [2007, 2008, 2010, 2011, 2012, 2014, 2015, 2016, 2018, 2019, 2020], "from": 2022 },
+{ "hdr": "7E4", "rax": "728", "cmd": {"22": "6185"}, "freq": 1, "dbgfilter": { "to": 2005, "years": [2007, 2008, 2010, 2011, 2012, 2014, 2015, 2016, 2018, 2019, 2020], "from": 2022 },
   "signals": [
     {"id": "FOCUS_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel tank level", "suggestedMetric": "fuelTankLevel"}
   ]},
