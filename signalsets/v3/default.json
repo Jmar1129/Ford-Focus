@@ -1,43 +1,45 @@
 { "commands": [
 { "hdr": "720", "rax": "728", "cmd": {"22": "404C"}, "freq": 30,
   "signals": [
-    {"id": "FOCUS_ODO_MAIN", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "FOCUS_ODO", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "mul": 0.621371, "div": 10, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "0202"}, "freq": 1,
+{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "0202"}, "freq": 2,
   "signals": [
-    {"id": "FOCUS_EV_SOC", "path": "Fuel", "fmt": { "len": 16, "max": 100, "div": 100, "unit": "percent" }, "name": "Battery Charge", "suggestedMetric": "fuelTankLevel"}
+    {"id": "FOCUS_EV_SOC", "path": "Fuel", "fmt": { "len": 16, "max": 100, "div": 100, "unit": "percent" }, "name": "Battery Charge", "suggestedMetric": "fuelTankLevel"},
+    {"id": "FOCUS_EV_RANGE", "path": "Fuel", "fmt": { "len": 16, "max": 120, "div": 100, "unit": "miles" }, "name": "Estimated Range", "suggestedMetric": "electricRange"}
   ]},
-{ "hdr": "720", "rax": "728", "cmd": {"22": "61A5"}, "freq": 10,
+{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "4827"}, "freq": 5,
   "signals": [
-    {"id": "FOCUS_TPMS_WARN", "path": "Tires", "fmt": {"bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire pressure warning"}
+    {"id": "FOCUS_HV_VOLT", "path": "Energy", "fmt": { "len": 16, "max": 500, "div": 10, "unit": "volts" }, "name": "HV Battery Voltage"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "4828"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUS_HV_CURR", "path": "Energy", "fmt": { "len": 16, "max": 500, "min": -500, "div": 10, "unit": "amperes" }, "name": "HV Battery Current"}
   ]},
 { "hdr": "726", "rax": "72E", "cmd": {"22": "2813"}, "freq": 5,
   "signals": [
-    {"id": "FOCUS_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+    {"id": "FOCUS_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 60, "div": 20, "unit": "psi" }, "name": "Front Left PSI", "suggestedMetric": "frontLeftTirePressure"}
   ]},
 { "hdr": "726", "rax": "72E", "cmd": {"22": "2814"}, "freq": 5,
   "signals": [
-    {"id": "FOCUS_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+    {"id": "FOCUS_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 60, "div": 20, "unit": "psi" }, "name": "Front Right PSI", "suggestedMetric": "frontRightTirePressure"}
   ]},
 { "hdr": "726", "rax": "72E", "cmd": {"22": "2815"}, "freq": 5,
   "signals": [
-    {"id": "FOCUS_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
+    {"id": "FOCUS_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 60, "div": 20, "unit": "psi" }, "name": "Rear Right PSI", "suggestedMetric": "rearRightTirePressure"}
   ]},
 { "hdr": "726", "rax": "72E", "cmd": {"22": "2816"}, "freq": 5,
   "signals": [
-    {"id": "FOCUS_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "FOCUS_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 60, "div": 20, "unit": "psi" }, "name": "Rear Left PSI", "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "726", "rax": "72E", "cmd": {"22": "C150"}, "freq": 3,
   "signals": [
-    {"id": "FOCUS_TRUNK_OPEN",          "path": "Doors", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Ajar"},
-    {"id": "FOCUS_RRD_OPEN",            "path": "Doors", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Right Door Ajar"},
-    {"id": "FOCUS_RLD_OPEN",            "path": "Doors", "fmt": {"bix": 13, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Left Door Ajar"},
-    {"id": "FOCUS_DRIVER_DOOR_OPEN",    "path": "Doors", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar"},
-    {"id": "FOCUS_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": {"bix": 17, "len": 1, "max": 1, "unit": "noyes" }, "name": "Passenger Door Ajar"}
+    {"id": "FOCUS_DRV_DOOR", "path": "Doors", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Open"},
+    {"id": "FOCUS_TRUNK",    "path": "Doors", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Open"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "F40D"}, "freq": 0.5,
+{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "F40D"}, "freq": 2,
   "signals": [
-    {"id": "FOCUS_VSS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed"}
+    {"id": "FOCUS_VSS", "path": "Movement", "fmt": { "len": 8, "max": 100, "mul": 0.621371, "unit": "milesPerHour" }, "name": "Speed", "suggestedMetric": "speed"}
   ]}
 ]
 }
