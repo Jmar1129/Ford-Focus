@@ -34,4 +34,38 @@
 { "hdr": "726", "rax": "72E", "cmd": {"22": "C150"}, "freq": 3, "dbgfilter": { "to": 2011, "years": [2015, 2018], "from": 2019 },
   "signals": [
     {"id": "FOCUS_TRUNK_OPEN",          "path": "Doors", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Ajar?"},
-    {"id": "FOCUS_RRD_OPEN",            "path": "Doors", "fmt": {"bix
+    {"id": "FOCUS_RRD_OPEN",            "path": "Doors", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Right Door Ajar?"},
+    {"id": "FOCUS_RLD_OPEN",            "path": "Doors", "fmt": {"bix": 13, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Left Door Ajar?"},
+    {"id": "FOCUS_DRIVER_DOOR_OPEN",    "path": "Doors", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar"},
+    {"id": "FOCUS_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": {"bix": 17, "len": 1, "max": 1, "unit": "noyes" }, "name": "Passenger Door Ajar?"}
+  ]},
+{ "hdr": "726", "rax": "72E", "cmd": {"22": "C154"}, "freq": 3, "dbgfilter": { "to": 2011, "years": [2015, 2018], "from": 2019 },
+  "signals": [
+    {"id": "FOCUS_HOOD_OPEN", "path": "Doors", "fmt": { "len": 1, "max": 1, "unit": "noyes" }, "name": "Hood Ajar?"}
+  ]},
+{ "hdr": "726", "rax": "72E", "cmd": {"22": "DD01"}, "freq": 5, "dbgfilter": { "to": 2011, "years": [2015, 2018], "from": 2019 },
+  "signals": [
+    {"id": "FOCUS_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer (Instrument panel)", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "03BA"}, "freq": 5, "dbgfilter": { "to": 2011, "years": [2015, 2018, 2019, 2020], "from": 2022 },
+  "signals": [
+    {"id": "FOCUS_AAT_V", "path": "Climate", "fmt": { "len": 16, "max": 5, "mul": 5, "div": 1023, "unit": "volts" }, "name": "Ambient temperature sensor voltage"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "057D"}, "freq": 2, "dbgfilter": { "to": 2011, "years": [2014, 2015, 2018, 2019, 2020], "from": 2022 },
+  "signals": [
+    {"id": "FOCUS_AAT_ALT", "path": "Climate", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Ambient temperature, alternate"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "099B"}, "freq": 5, "dbgfilter": { "to": 2008, "years": [2010, 2015, 2018, 2019, 2020], "from": 2022 },
+  "signals": [
+    {"id": "FOCUS_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C compressor, state"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "F40D"}, "freq": 0.25, "dbgfilter": { "to": 2008, "years": [2010, 2015, 2018, 2019, 2020], "from": 2022 },
+  "signals": [
+    {"id": "FOCUS_VSS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "F4A6"}, "freq": 5, "dbgfilter": { "to": 2017, "years": [2018, 2020], "from": 2022 },
+  "signals": [
+    {"id": "FOCUS_PCM_VEH_ODO", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Vehicle odometer"}
+  ]}
+]
+}
