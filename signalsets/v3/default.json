@@ -1,70 +1,49 @@
-{ "commands": [
-{ "hdr": "720", "rax": "728", "cmd": {"22": "404C"}, "freq": 20,
-  "signals": [
-    {"id": "FOCUS_ODO", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "mul": 0.621371, "div": 10, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer"}
-  ]},
-
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "0202"}, "freq": 2,
-  "signals": [
-    {"id": "FOCUS_SOC_DISPLAY", "path": "Battery/Tests", "fmt": { "len": 16, "div": 100, "unit": "percent" }, "name": "SOC (Display PID 0202)"},
-    {"id": "FOCUS_EV_RANGE_A", "path": "Fuel", "fmt": { "len": 16, "div": 100, "unit": "miles" }, "name": "Range (Calc A)", "suggestedMetric": "electricRange"}
-  ]},
-
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "4802"}, "freq": 2,
-  "signals": [
-    {"id": "FOCUS_SOC_HV", "path": "Battery/Tests", "fmt": { "len": 16, "div": 100, "unit": "percent" }, "name": "SOC (HV PID 4802)"},
-    {"id": "FOCUS_FUEL_LVL", "path": "Fuel", "fmt": { "len": 16, "div": 100, "unit": "percent" }, "name": "Battery Charge", "suggestedMetric": "fuelTankLevel"}
-  ]},
-
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "4801"}, "freq": 2,
-  "signals": [
-    {"id": "FOCUS_SOC_PCT", "path": "Battery/Tests", "fmt": { "len": 8, "unit": "percent" }, "name": "SOC (Pct PID 4801)"}
-  ]},
-
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "4827"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_HV_VOLT", "path": "Battery", "fmt": { "len": 16, "div": 10, "unit": "volts" }, "name": "HV Battery Voltage"}
-  ]},
-
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "4828"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_HV_CURR", "path": "Battery", "fmt": { "len": 16, "signed": true, "div": 10, "unit": "amperes" }, "name": "HV Battery Current"}
-  ]},
-
-{ "hdr": "7E4", "rax": "7EC", "cmd": {"22": "480F"}, "freq": 1,
-  "signals": [
-    {"id": "FOCUS_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "add": -40, "unit": "celsius" }, "name": "Battery Temperature"}
-  ]},
-
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2813"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_TP_FL", "path": "Tires", "fmt": { "len": 16, "div": 20, "unit": "psi" }, "name": "Front Left PSI", "suggestedMetric": "frontLeftTirePressure"}
-  ]},
-
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2814"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_TP_FR", "path": "Tires", "fmt": { "len": 16, "div": 20, "unit": "psi" }, "name": "Front Right PSI", "suggestedMetric": "frontRightTirePressure"}
-  ]},
-
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2815"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_TP_RR", "path": "Tires", "fmt": { "len": 16, "div": 20, "unit": "psi" }, "name": "Rear Right PSI", "suggestedMetric": "rearRightTirePressure"}
-  ]},
-
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2816"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_TP_RL", "path": "Tires", "fmt": { "len": 16, "div": 20, "unit": "psi" }, "name": "Rear Left PSI", "suggestedMetric": "rearLeftTirePressure"}
-  ]},
-
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "C150"}, "freq": 3,
-  "signals": [
-    {"id": "FOCUS_DRV_DOOR", "path": "Doors", "fmt": {"bix": 16, "len": 1, "unit": "noyes" }, "name": "Driver Door"},
-    {"id": "FOCUS_TRUNK",    "path": "Doors", "fmt": {"bix": 11, "len": 1, "unit": "noyes" }, "name": "Trunk"}
-  ]},
-
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"22": "F40D"}, "freq": 5,
-  "signals": [
-    {"id": "FOCUS_VSS", "path": "Movement", "fmt": { "len": 8, "mul": 0.621371, "unit": "milesPerHour" }, "name": "Speed", "suggestedMetric": "speed"}
-  ]}
-]
+{
+  "commands": [
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 2,
+      "signals": [
+        { "id": "FOC_SOC_RAW", "path": "Battery", "fmt": { "len": 32 }, "name": "Raw SOC String" }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 2,
+      "signals": [
+        { "id": "FOC_BATT_HEALTH", "path": "Battery", "fmt": { "len": 16, "div": 100, "unit": "%" }, "name": "Battery SOH (State of Health)" }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480E" }, "freq": 2,
+      "signals": [
+        { "id": "FOC_BATT_CELL_VAR", "path": "Battery/Detail", "fmt": { "len": 16, "div": 1000, "unit": "V" }, "name": "Max Cell Variation" }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 5,
+      "signals": [
+        { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "signed": true, "add": -32768, "div": 10, "unit": "A" }, "name": "Battery Amperage (High Res)" },
+        { "id": "FOCUS_SOC_PCT", "path": "Battery/Tests", "fmt": { "len": 8, "unit": "%" }, "name": "SOC (Pct PID 4801)" }
+      ]
+    },
+    {
+      "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
+      "signals": [
+        { "id": "FOCUS_DRV_DOOR", "path": "Doors", "fmt": { "bix": 16, "len": 1, "unit": "noyes" }, "name": "Driver Door" },
+        { "id": "FOCUS_PASS_DOOR", "path": "Doors", "fmt": { "bix": 15, "len": 1, "unit": "noyes" }, "name": "Passenger Door" },
+        { "id": "FOCUS_TRUNK", "path": "Doors", "fmt": { "bix": 11, "len": 1, "unit": "noyes" }, "name": "Trunk Status" }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "DD01" }, "freq": 1,
+      "signals": [
+        { "id": "FOC_BATT_AGE", "path": "Battery/Detail", "fmt": { "len": 16, "unit": "days" }, "name": "Battery Age" }
+      ]
+    },
+    {
+      "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
+      "signals": [
+        { "id": "FOCUS_VSS", "path": "Movement", "fmt": { "len": 8, "mul": 0.621, "unit": "mph" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
+      ]
+    }
+  ]
 }
