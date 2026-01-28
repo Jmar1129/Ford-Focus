@@ -19,18 +19,11 @@
       ]
     },
     {
-      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 5,
-      "signals": [
-        { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "signed": true, "add": -32768, "div": 10, "unit": "A" }, "name": "Battery Amperage (High Res)" },
-        { "id": "FOCUS_SOC_PCT", "path": "Battery/Tests", "fmt": { "len": 8, "unit": "%" }, "name": "SOC (Pct PID 4801)" }
-      ]
-    },
-    {
       "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
       "signals": [
-        { "id": "FOCUS_DRV_DOOR", "path": "Doors", "fmt": { "bix": 16, "len": 1, "unit": "noyes" }, "name": "Driver Door" },
-        { "id": "FOCUS_PASS_DOOR", "path": "Doors", "fmt": { "bix": 15, "len": 1, "unit": "noyes" }, "name": "Passenger Door" },
-        { "id": "FOCUS_TRUNK", "path": "Doors", "fmt": { "bix": 11, "len": 1, "unit": "noyes" }, "name": "Trunk Status" }
+        { "id": "FOCUS_DRIVER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar" },
+        { "id": "FOCUS_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 15, "len": 1, "max": 1, "unit": "noyes" }, "name": "Passenger Door Ajar" },
+        { "id": "FOCUS_TRUNK_OPEN", "path": "Doors", "fmt": { "bix": 11, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Ajar" }
       ]
     },
     {
