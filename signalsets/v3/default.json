@@ -1,32 +1,32 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "offset": 24, "len": 16, "div": 100, "unit": "percent", "max": 100 }, "name": "Battery State of Health", "suggestedMetric": "fuelTankLevel" }
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "offset": 48, "len": 8, "unit": "percent", "max": 100 }, "name": "Battery State of Health", "suggestedMetric": "fuelTankLevel" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "offset": 24, "len": 16, "sign": true, "add": -32768, "div": 10, "unit": "amperes", "max": 500 }, "name": "HV Battery Current" }
+      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "offset": 48, "len": 16, "sign": true, "add": -32768, "div": 10, "unit": "amperes", "max": 500 }, "name": "HV Battery Current" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4827" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "offset": 24, "len": 16, "div": 10, "unit": "volts", "max": 500 }, "name": "HV Battery Voltage" }
+      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "offset": 48, "len": 16, "div": 10, "unit": "volts", "max": 500 }, "name": "HV Battery Voltage" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4832" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_RAW", "path": "Battery", "fmt": { "offset": 24, "len": 16, "div": 100, "unit": "percent", "max": 100 }, "name": "State of Charge", "suggestedMetric": "fuelTankLevel" }
+      { "id": "FOC_SOC_DISPLAY", "path": "Battery", "fmt": { "offset": 48, "len": 16, "div": 100, "unit": "percent", "max": 100 }, "name": "State of Charge", "suggestedMetric": "fuelTankLevel" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "DD01" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_AGE", "path": "Battery", "fmt": { "offset": 24, "len": 16, "unit": "days", "max": 5000 }, "name": "Battery Age" }
+      { "id": "FOC_BATT_AGE", "path": "Battery", "fmt": { "offset": 48, "len": 16, "unit": "days", "max": 5000 }, "name": "Battery Age" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
     "signals": [
-      { "id": "FOCUS_SPEED", "path": "Movement", "fmt": { "offset": 24, "len": 8, "mul": 0.621, "unit": "milesPerHour", "max": 160 }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
+      { "id": "FOCUS_SPEED", "path": "Movement", "fmt": { "offset": 48, "len": 8, "mul": 0.621, "unit": "milesPerHour", "max": 160 }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
     ]
   }
 ]}
