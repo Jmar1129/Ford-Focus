@@ -16,7 +16,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_RAW", "path": "Battery", "fmt": { "len": 32, "max": 100 }, "name": "SOC String (Raw)" }
+      { "id": "FOC_SOC_RAW", "path": "Battery", "fmt": { "len": 32, "max": 100, "unit": "percent" }, "name": "SOC String (Raw)" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "DD01" }, "freq": 1,
