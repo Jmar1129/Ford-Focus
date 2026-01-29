@@ -1,48 +1,32 @@
 { "commands": [
-{ "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "404C"}, "freq": 30,
-  "signals": [
-    {"id": "FOCUS_ODO", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
-  ]},
-{ "hdr": "720", "rax": "728", "cmd": {"22": "6185"}, "freq": 1, "dbgfilter": { "to": 2005, "years": [2007, 2008], "from": 2010 },
-  "signals": [
-    {"id": "FOCUS_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel tank level", "suggestedMetric": "fuelTankLevel"}
-  ]},
-{ "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "61A5"}, "freq": 10,
-  "signals": [
-    {"id": "FOCUS_TPMS_WARN", "path": "Tires", "fmt": {"bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire pressure warning"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2813"}, "freq": 5, "dbgfilter": { "to": 2011, "years": [2014, 2015], "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2814"}, "freq": 5, "dbgfilter": { "to": 2011, "years": [2014, 2015], "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2815"}, "freq": 5, "dbgfilter": { "to": 2011, "years": [2014, 2015], "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_TP_RRO", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear right outer tire pressure", "suggestedMetric": "rearRightTirePressure"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2816"}, "freq": 5, "dbgfilter": { "to": 2011, "years": [2014, 2015], "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_TP_RLO", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear left outer tire pressure", "suggestedMetric": "rearLeftTirePressure"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2817"}, "freq": 5, "dbgfilter": { "to": 2015, "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_TP_RRI", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear right inner tire pressure", "suggestedMetric": "rearRightTirePressure"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "2818"}, "freq": 5, "dbgfilter": { "to": 2015, "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_TP_RLI", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear left inner tire pressure", "suggestedMetric": "rearLeftTirePressure"}
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "407E"}, "freq": 1, "dbgfilter": { "to": 2011, "years": [2015], "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_EXTERIOR_LIGHT_STATE", "path": "Lights", "name": "Exterior lighting state", "fmt": {"bix": 0, "len": 1, "map": {
-          "0":   { "description": "0", "value": "0" },
-          "216": { "description": "1", "value": "1" }
-        }}
-    }
-  ]},
-{ "hdr": "726", "rax": "72E", "cmd": {"22": "7151"}, "freq": 4, "dbgfilter": { "to": 2011, "years": [2015], "from": 2019 },
-  "signals": [
-    {"id": "FOCUS_HIGHBEAM_STATUS",
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 16, "div": 100, "unit": "percent" }, "name": "Battery State of Health", "suggestedMetric": "fuelTankLevel" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4827" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "div": 10, "unit": "volts" }, "name": "HV Battery Voltage" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_SOC_RAW", "path": "Battery", "fmt": { "len": 32 }, "name": "SOC String (Raw)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "DD01" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_BATT_AGE", "path": "Battery", "fmt": { "len": 16, "unit": "days" }, "name": "Battery Age" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
+    "signals": [
+      { "id": "FOCUS_SPEED", "path": "Movement", "fmt": { "len": 8, "mul": 0.621, "unit": "milesPerHour" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
+    ]
+  }
+]}
