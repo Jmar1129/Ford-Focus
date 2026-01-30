@@ -19,7 +19,7 @@
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 5000, "min": -5000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 2,
+  { "hdr": "720", "rax": "728", "cmd": { "22": "D126" }, "freq": 2,
     "signals": [
       { "id": "FOC_RANGE_MILES", "path": "Trips", "fmt": { "len": 16, "max": 5000, "div": 16.09, "unit": "miles" }, "name": "Distance to Empty", "suggestedMetric": "fuelRange" }
     ]
