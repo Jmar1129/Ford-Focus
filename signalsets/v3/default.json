@@ -2,7 +2,7 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
       { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "offset": 48, "len": 8, "max": 100, "div": 1.85, "unit": "percent" }, "name": "State of Charge", "suggestedMetric": "fuelLevel" },
-      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "offset": 48, "len": 8, "max": 150, "div": 1.61, "unit": "miles" }, "name": "Est. Range (Calculated)", "suggestedMetric": "fuelRange" }
+      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "offset": 48, "len": 8, "max": 150, "div": 2.1, "unit": "miles" }, "name": "Est. Range (Calculated)", "suggestedMetric": "fuelRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
