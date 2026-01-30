@@ -1,53 +1,129 @@
-{ "commands": [
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "offset": 48, "len": 8, "div": 1.85, "unit": "percent", "max": 100 }, "name": "State of Charge", "suggestedMetric": "fuelLevel" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "div": 10, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "batteryVoltage" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_RANGE_MILES", "path": "Trips", "fmt": { "len": 16, "div": 16.09, "unit": "miles" }, "name": "Distance to Empty", "suggestedMetric": "fuelRange" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 8, "div": 4, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "2814" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 8, "div": 4, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure" }
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
-    "signals": [
-      { "id": "FOC_VSS", "path": "Movement", "fmt": { "len": 8, "div": 1.609, "unit": "milesPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
-    "signals": [
-      { "id": "FOC_DRIVER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 16, "len": 1, "unit": "noyes" }, "name": "Driver Door Ajar" },
-      { "id": "FOC_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 17, "len": 1, "unit": "noyes" }, "name": "Passenger Door Ajar?" }
-    ]
-  },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "DD01" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_ODO", "path": "Trips", "fmt": { "len": 24, "div": 16.09, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer" }
-    ]
-  }
-]}
+{
+  "commands": [
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
+      "signals": [
+        {
+          "id": "FOC_SOC_FINAL",
+          "path": "Battery",
+          "fmt": { "offset": 48, "len": 8, "div": 1.85, "unit": "percent", "max": 100 },
+          "name": "State of Charge",
+          "suggestedMetric": "fuelLevel"
+        }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
+      "signals": [
+        {
+          "id": "FOC_BATT_SOH",
+          "path": "Battery",
+          "fmt": { "len": 8, "div": 2.55, "unit": "percent" },
+          "name": "Battery Health (SOH)",
+          "suggestedMetric": "batteryHealth"
+        }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
+      "signals": [
+        {
+          "id": "FOC_BATT_VOLTS",
+          "path": "Battery",
+          "fmt": { "len": 16, "div": 10, "unit": "volts" },
+          "name": "HV Battery Voltage",
+          "suggestedMetric": "batteryVoltage"
+        }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
+      "signals": [
+        {
+          "id": "FOC_BATT_AMPS",
+          "path": "Battery",
+          "fmt": { "len": 16, "sign": true, "add": -32768, "div": 10, "unit": "amperes" },
+          "name": "HV Battery Current",
+          "suggestedMetric": "batteryCurrent"
+        }
+      ]
+    },
+    {
+      "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 2,
+      "signals": [
+        {
+          "id": "FOC_RANGE_MILES",
+          "path": "Trips",
+          "fmt": { "len": 16, "div": 16.09, "unit": "miles" },
+          "name": "Distance to Empty",
+          "suggestedMetric": "fuelRange"
+        }
+      ]
+    },
+    {
+      "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
+      "signals": [
+        {
+          "id": "FOC_TP_FL",
+          "path": "Tires",
+          "fmt": { "len": 8, "div": 4, "unit": "psi" },
+          "name": "Front Left Pressure",
+          "suggestedMetric": "frontLeftTirePressure"
+        }
+      ]
+    },
+    {
+      "hdr": "726", "rax": "72E", "cmd": { "22": "2814" }, "freq": 5,
+      "signals": [
+        {
+          "id": "FOC_TP_FR",
+          "path": "Tires",
+          "fmt": { "len": 8, "div": 4, "unit": "psi" },
+          "name": "Front Right Pressure",
+          "suggestedMetric": "frontRightTirePressure"
+        }
+      ]
+    },
+    {
+      "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
+      "signals": [
+        {
+          "id": "FOC_DRIVER_DOOR_OPEN",
+          "path": "Doors",
+          "fmt": { "bix": 16, "len": 1, "unit": "noyes" },
+          "name": "Driver Door Ajar"
+        },
+        {
+          "id": "FOC_PASSENGER_DOOR_OPEN",
+          "path": "Doors",
+          "fmt": { "bix": 17, "len": 1, "unit": "noyes" },
+          "name": "Passenger Door Ajar"
+        }
+      ]
+    },
+    {
+      "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
+      "signals": [
+        {
+          "id": "FOC_VSS",
+          "path": "Movement",
+          "fmt": { "len": 8, "div": 1.609, "unit": "milesPerHour" },
+          "name": "Vehicle Speed",
+          "suggestedMetric": "speed"
+        }
+      ]
+    },
+    {
+      "hdr": "720", "rax": "728", "cmd": { "22": "DD01" }, "freq": 1,
+      "signals": [
+        {
+          "id": "FOC_ODO",
+          "path": "Trips",
+          "fmt": { "len": 24, "div": 16.09, "unit": "miles" },
+          "name": "Odometer",
+          "suggestedMetric": "odometer"
+        }
+      ]
+    }
+  ]
+}
