@@ -21,7 +21,37 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 1,
     "signals": [
-      { "id": "FOC_RANGE", "path": "Battery", "fmt": { "offset": 48, "len": 16, "unit": "km", "max": 300 }, "name": "Range (Raw km)" }
+      { "id": "FOC_RANGE_MILES", "path": "Battery", "fmt": { "offset": 48, "len": 16, "div": 1.609, "unit": "mi", "max": 150 }, "name": "Range (Miles)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480E" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_BATT_TEMP_AVG", "path": "Battery/Thermal", "fmt": { "offset": 48, "len": 8, "add": -40, "unit": "celsius", "max": 100 }, "name": "Battery Temp (Avg)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D411" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_12V_BATT_V", "path": "12V System", "fmt": { "offset": 48, "len": 16, "div": 100, "unit": "volts", "max": 18 }, "name": "12V Battery Voltage" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "E487" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_CHARGER_AC_V", "path": "Charger", "fmt": { "offset": 48, "len": 16, "div": 10, "unit": "volts", "max": 300 }, "name": "Charger Input Voltage" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D10B" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_BATT_COOLANT_FLOW", "path": "Battery/Thermal", "fmt": { "offset": 48, "len": 8, "unit": "percent", "max": 100 }, "name": "Coolant Pump Speed" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D108" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_MAX_DISCHARGE_PWR", "path": "Battery/Limits", "fmt": { "offset": 48, "len": 16, "div": 100, "unit": "kW", "max": 150 }, "name": "Max Discharge Power" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D109" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_MAX_REGEN_PWR", "path": "Battery/Limits", "fmt": { "offset": 48, "len": 16, "div": 100, "unit": "kW", "max": 100 }, "name": "Max Regen Power" }
     ]
   }
 ]}
