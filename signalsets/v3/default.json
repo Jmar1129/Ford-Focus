@@ -1,17 +1,27 @@
 { "commands": [
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4806" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_DISPLAY", "path": "Battery", "fmt": { "offset": 48, "len": 8, "div": 2.55, "unit": "percent", "max": 100 }, "name": "State of Charge", "suggestedMetric": "fuelTankLevel" }
+      { "id": "FOC_SOC_4806", "path": "Battery", "fmt": { "offset": 48, "len": 8, "div": 2.55, "unit": "percent", "max": 100 }, "name": "SOC (Candidate A)" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "01": "5B" }, "freq": 2,
+    "signals": [
+      { "id": "GENERIC_SOC", "path": "Battery", "fmt": { "offset": 24, "len": 8, "div": 2.55, "unit": "percent", "max": 100 }, "name": "SOC (Candidate B)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "2DD4" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_SOC_2DD4", "path": "Battery", "fmt": { "offset": 48, "len": 8, "div": 2.55, "unit": "percent", "max": 100 }, "name": "SOC (Candidate C)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "offset": 48, "len": 8, "div": 2.55, "unit": "percent", "max": 100 }, "name": "Battery Health (SOH)" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 1,
     "signals": [
       { "id": "FOC_RANGE", "path": "Battery", "fmt": { "offset": 48, "len": 16, "unit": "km", "max": 300 }, "name": "Estimated Range" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480E" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "offset": 48, "len": 8, "add": -40, "unit": "celsius", "max": 100 }, "name": "Battery Temp" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
@@ -22,11 +32,6 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "offset": 48, "len": 16, "sign": true, "add": -32768, "div": 10, "unit": "amperes", "max": 500 }, "name": "HV Battery Current" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "E487" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_AC_VOLTS", "path": "Charger", "fmt": { "offset": 48, "len": 16, "div": 10, "unit": "volts", "max": 300 }, "name": "Charger AC Volts" }
     ]
   }
 ]}
