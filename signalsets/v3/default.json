@@ -6,12 +6,12 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 1,
     "signals": [
-      { "id": "FOC_RANGE", "path": "Battery", "fmt": { "offset": 48, "len": 16, "unit": "kilometers" }, "name": "Estimated Range (GOM)" }
+      { "id": "FOC_RANGE", "path": "Battery", "fmt": { "offset": 48, "len": 16, "unit": "km", "max": 300 }, "name": "Estimated Range" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480E" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "offset": 48, "len": 8, "add": -40, "unit": "celsius", "max": 100 }, "name": "Battery Temp (Avg)" }
+      { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "offset": 48, "len": 8, "add": -40, "unit": "celsius", "max": 100 }, "name": "Battery Temp" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
