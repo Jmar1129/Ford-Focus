@@ -1,7 +1,8 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "offset": 48, "len": 8, "max": 100, "div": 1.85, "unit": "percent" }, "name": "State of Charge", "suggestedMetric": "fuelLevel" }
+      { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "offset": 48, "len": 8, "max": 100, "div": 1.85, "unit": "percent" }, "name": "State of Charge", "suggestedMetric": "fuelLevel" },
+      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "offset": 48, "len": 8, "max": 150, "div": 1.61, "unit": "miles" }, "name": "Est. Range (Calculated)", "suggestedMetric": "fuelRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
@@ -17,11 +18,6 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 5000, "min": -5000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "D126" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_RANGE_MILES", "path": "Trips", "fmt": { "len": 16, "max": 5000, "div": 16.09, "unit": "miles" }, "name": "Distance to Empty", "suggestedMetric": "fuelRange" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
