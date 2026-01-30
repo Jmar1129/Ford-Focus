@@ -1,7 +1,12 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_DISPLAY", "path": "Battery", "fmt": { "offset": 48, "len": 8, "unit": "percent", "max": 100 }, "name": "State of Charge", "suggestedMetric": "fuelTankLevel" }
+      { "id": "FOC_SOC_DISPLAY", "path": "Battery", "fmt": { "offset": 48, "len": 8, "div": 2.55, "unit": "percent", "max": 100 }, "name": "State of Charge", "suggestedMetric": "fuelTankLevel" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D126" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_RANGE", "path": "Battery", "fmt": { "offset": 48, "len": 16, "unit": "kilometers" }, "name": "Estimated Range (GOM)" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480E" }, "freq": 1,
@@ -22,11 +27,6 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "E487" }, "freq": 2,
     "signals": [
       { "id": "FOC_AC_VOLTS", "path": "Charger", "fmt": { "offset": 48, "len": 16, "div": 10, "unit": "volts", "max": 300 }, "name": "Charger AC Volts" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "E488" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_AC_AMPS", "path": "Charger", "fmt": { "offset": 48, "len": 16, "div": 100, "unit": "amperes", "max": 40 }, "name": "Charger AC Amps" }
     ]
   }
 ]}
