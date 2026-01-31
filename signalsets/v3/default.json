@@ -1,8 +1,8 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "offset": 48, "len": 8, "max": 100, "div": 1.85, "unit": "percent" }, "name": "State of Charge", "suggestedMetric": "stateOfCharge" },
-      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "offset": 48, "len": 8, "max": 150, "div": 2.1, "unit": "miles" }, "name": "Est. Range (Calculated)", "suggestedMetric": "electricRange" }
+      { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.85, "unit": "percent" }, "name": "State of Charge", "suggestedMetric": "stateOfCharge" },
+      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.1, "unit": "miles" }, "name": "Est. Range (Calculated)", "suggestedMetric": "electricRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
@@ -12,22 +12,22 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 5000, "div": 10, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "batteryVoltage" }
+      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 10, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 5000, "min": -5000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
+      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F442" }, "freq": 1,
     "signals": [
-      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 20, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
+      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F446" }, "freq": 1,
     "signals": [
-      { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 100, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
+      { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
