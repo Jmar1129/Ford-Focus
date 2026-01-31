@@ -20,16 +20,6 @@
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F442" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F446" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
-    ]
-  },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
     "signals": [
       { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 255, "div": 4, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
@@ -52,15 +42,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
     "signals": [
-      { "id": "FOC_DRIVER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar" },
-      { "id": "FOC_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 17, "len": 1, "max": 1, "unit": "noyes" }, "name": "Passenger Door Ajar" },
-      { "id": "FOC_TRUNK_OPEN", "path": "Doors", "fmt": { "bix": 20, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Ajar" },
-      { "id": "FOC_HOOD_OPEN", "path": "Doors", "fmt": { "bix": 21, "len": 1, "max": 1, "unit": "noyes" }, "name": "Hood Ajar" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "407E" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_EXT_LIGHTS", "path": "Lights", "fmt": { "len": 8, "map": { "216": { "val": "ON", "desc": "Lights On" }, "0": { "val": "OFF", "desc": "Lights Off" } } }, "name": "Exterior Lights" }
+      { "id": "FOC_DRIVER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
