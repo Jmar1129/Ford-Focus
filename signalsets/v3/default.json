@@ -30,11 +30,6 @@
       { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 100, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E12" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "map": { "0": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
-    ]
-  },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
     "signals": [
       { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 255, "div": 4, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
@@ -76,11 +71,6 @@
   { "hdr": "720", "rax": "728", "cmd": { "22": "DD01" }, "freq": 1,
     "signals": [
       { "id": "FOC_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 16.09, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer" }
-    ]
-  },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 10,
-    "signals": [
-      { "id": "FOC_TPMS_WARN", "path": "Tires", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire Pressure Warning" }
     ]
   }
 ]}
