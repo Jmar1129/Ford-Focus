@@ -20,24 +20,59 @@
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
     ]
   },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F442" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F446" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E12" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "map": { "0": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "099B" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
+    "signals": [
+      { "id": "FOC_VSS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
+    "signals": [
+      { "id": "FOC_PARKING_BRAKE", "path": "Movement", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Parking Brake" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "3201" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_STEER_ANGLE", "path": "Movement", "fmt": { "len": 8, "max": 790, "min": -790, "mul": 6.25, "sign": true, "unit": "degrees" }, "name": "Steering Wheel Angle" }
+    ]
+  },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
+      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2814" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
+      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2815" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
+      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2816" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
+      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
@@ -56,7 +91,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "407E" }, "freq": 1,
     "signals": [
-      { "id": "FOC_EXT_LIGHTS", "path": "Lights", "fmt": { "len": 8, "map": { "216": { "val": "ON", "desc": "Lights On" }, "0": { "val": "OFF", "desc": "Lights Off" } } }, "name": "Exterior Lights" }
+      { "id": "FOC_EXT_LIGHTS", "path": "Lights", "fmt": { "len": 8, "max": 255, "map": { "216": { "val": "ON", "desc": "Lights On" }, "0": { "val": "OFF", "desc": "Lights Off" } } }, "name": "Exterior Lights" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "7151" }, "freq": 4,
@@ -64,29 +99,14 @@
       { "id": "FOC_HIGHBEAM", "path": "Lights", "fmt": { "len": 16, "max": 2, "unit": "offon" }, "name": "Highbeam Status" }
     ]
   },
-  { "hdr": "760", "rax": "768", "cmd": { "22": "3201" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_STEER_ANGLE", "path": "Movement", "fmt": { "len": 8, "max": 790, "min": -790, "mul": 6.25, "sign": true, "unit": "degrees" }, "name": "Steering Wheel Angle" }
-    ]
-  },
-  { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
-    "signals": [
-      { "id": "FOC_PARKING_BRAKE", "path": "Movement", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Parking Brake" }
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "099B" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
-    "signals": [
-      { "id": "FOC_VSS", "path": "Movement", "fmt": { "len": 8, "max": 255, "div": 1.609, "unit": "milesPerHour" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
-    ]
-  },
   { "hdr": "720", "rax": "728", "cmd": { "22": "DD01" }, "freq": 1,
     "signals": [
       { "id": "FOC_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer" }
+    ]
+  },
+  { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 10,
+    "signals": [
+      { "id": "FOC_TPMS_WARN", "path": "Tires", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire Pressure Warning" }
     ]
   }
 ]}
