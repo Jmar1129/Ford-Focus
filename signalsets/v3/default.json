@@ -22,27 +22,61 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 255, "div": 4, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
+      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2814" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 8, "max": 255, "div": 4, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
+      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2815" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 8, "max": 255, "div": 4, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
+      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2816" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 8, "max": 255, "div": 4, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
+      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
     "signals": [
-      { "id": "FOC_DRIVER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar" }
+      { "id": "FOC_TRUNK_OPEN", "path": "Doors", "fmt": { "bix": 11, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Ajar" },
+      { "id": "FOC_RRD_OPEN", "path": "Doors", "fmt": { "bix": 12, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Right Door Ajar" },
+      { "id": "FOC_RLD_OPEN", "path": "Doors", "fmt": { "bix": 13, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Left Door Ajar" },
+      { "id": "FOC_DRIVER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar" },
+      { "id": "FOC_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": { "bix": 17, "len": 1, "max": 1, "unit": "noyes" }, "name": "Passenger Door Ajar" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "C154" }, "freq": 3,
+    "signals": [
+      { "id": "FOC_HOOD_OPEN", "path": "Doors", "fmt": { "len": 1, "max": 1, "unit": "noyes" }, "name": "Hood Ajar" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "407E" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_EXT_LIGHTS", "path": "Lights", "fmt": { "len": 8, "map": { "216": { "val": "ON", "desc": "Lights On" }, "0": { "val": "OFF", "desc": "Lights Off" } } }, "name": "Exterior Lights" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "7151" }, "freq": 4,
+    "signals": [
+      { "id": "FOC_HIGHBEAM", "path": "Lights", "fmt": { "len": 16, "max": 2, "unit": "offon" }, "name": "Highbeam Status" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "3201" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_STEER_ANGLE", "path": "Movement", "fmt": { "len": 8, "max": 790, "min": -790, "mul": 6.25, "sign": true, "unit": "degrees" }, "name": "Steering Wheel Angle" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
+    "signals": [
+      { "id": "FOC_PARKING_BRAKE", "path": "Movement", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Parking Brake" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "099B" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
@@ -52,7 +86,7 @@
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "DD01" }, "freq": 1,
     "signals": [
-      { "id": "FOC_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 16.09, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer" }
+      { "id": "FOC_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer" }
     ]
   }
 ]}
