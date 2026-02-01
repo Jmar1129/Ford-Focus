@@ -32,7 +32,7 @@
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E12" }, "freq": 2,
     "signals": [
-      { "id": "FOC_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "map": { "0": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
+      { "id": "FOC_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar", "map": { "0": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "099B" }, "freq": 5,
@@ -57,22 +57,22 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
+      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2814" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
+      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2815" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
+      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2816" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 65535, "div": 20, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
+      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
@@ -91,7 +91,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "407E" }, "freq": 1,
     "signals": [
-      { "id": "FOC_EXT_LIGHTS", "path": "Lights", "fmt": { "len": 8, "max": 255, "map": { "216": { "val": "ON", "desc": "Lights On" }, "0": { "val": "OFF", "desc": "Lights Off" } } }, "name": "Exterior Lights" }
+      { "id": "FOC_EXT_LIGHTS", "path": "Lights", "fmt": { "len": 8, "max": 255, "unit": "scalar", "map": { "216": { "val": "ON", "desc": "Lights On" }, "0": { "val": "OFF", "desc": "Lights Off" } } }, "name": "Exterior Lights" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "7151" }, "freq": 4,
