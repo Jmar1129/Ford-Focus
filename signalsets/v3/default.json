@@ -5,12 +5,13 @@
       { "id": "FOC_SOC_ADJ", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.05, "unit": "percent" }, "name": "SOC (Adjusted 2.05)", "suggestedMetric": "stateOfCharge" },
       { "id": "FOC_SOC_LOW", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.25, "unit": "percent" }, "name": "SOC (Low-End 2.25)", "suggestedMetric": "stateOfCharge" },
       { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.79, "unit": "miles" }, "name": "Est. Range (Heat OFF)", "suggestedMetric": "electricRange" },
-      { "id": "FOC_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.3, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
+      { "id": "FOC_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.3, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" },
+      { "id": "FOC_CHRG_STATE", "path": "Battery", "fmt": { "len": 8, "max": 255, "map": { "0": { "val": "Not Charging", "desc": "Not Charging" }, "1": { "val": "Charging", "desc": "Charging" }, "2": { "val": "Complete", "desc": "Charge Complete" }, "3": { "val": "Fault", "desc": "Charging Fault" } } }, "name": "Charging State", "suggestedMetric": "isCharging" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "stateOfHealth" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
