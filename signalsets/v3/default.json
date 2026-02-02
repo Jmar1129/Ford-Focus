@@ -10,7 +10,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
     "signals": [
-      { "id": "FOC_CHRG_STATE", "path": "Battery", "fmt": { "len": 8, "max": 5, "map": { "0": { "val": "Not Ready", "desc": "Not Ready" }, "1": { "val": "Wait", "desc": "Wait" }, "2": { "val": "Ready", "desc": "Ready" }, "3": { "val": "Charging", "desc": "Charging" }, "4": { "val": "Done", "desc": "Done" }, "5": { "val": "Fault", "desc": "Fault" } } }, "name": "Charging State", "suggestedMetric": "isCharging", "unit": "scalar" }
+      { "id": "FOC_CHRG_STATE", "path": "Battery", "fmt": { "len": 8, "max": 5, "unit": "scalar", "map": { "0": { "val": "Not Ready", "desc": "Not Ready" }, "1": { "val": "Wait", "desc": "Wait" }, "2": { "val": "Ready", "desc": "Ready" }, "3": { "val": "Charging", "desc": "Charging" }, "4": { "val": "Done", "desc": "Done" }, "5": { "val": "Fault", "desc": "Fault" } } }, "name": "Charging State", "suggestedMetric": "isCharging" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
