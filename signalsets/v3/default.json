@@ -1,7 +1,9 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_FINAL", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.25, "unit": "percent" }, "name": "State of Charge", "suggestedMetric": "stateOfCharge" },
+      { "id": "FOC_SOC_STD", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.85, "unit": "percent" }, "name": "SOC (Standard 1.85)", "suggestedMetric": "stateOfCharge" },
+      { "id": "FOC_SOC_ADJ", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.05, "unit": "percent" }, "name": "SOC (Adjusted 2.05)", "suggestedMetric": "stateOfCharge" },
+      { "id": "FOC_SOC_LOW", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.25, "unit": "percent" }, "name": "SOC (Low-End 2.25)", "suggestedMetric": "stateOfCharge" },
       { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.1, "unit": "miles" }, "name": "Est. Range (Calculated)", "suggestedMetric": "electricRange" }
     ]
   },
