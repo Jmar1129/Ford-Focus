@@ -13,9 +13,14 @@
       { "id": "FOC_CHRG_STATE", "path": "Battery", "fmt": { "len": 8, "max": 5, "unit": "scalar", "map": { "0": { "val": "Not Ready", "desc": "Not Ready" }, "1": { "val": "Wait", "desc": "Wait" }, "2": { "val": "Ready", "desc": "Ready" }, "3": { "val": "Charging", "desc": "Charging" }, "4": { "val": "Done", "desc": "Done" }, "5": { "val": "Fault", "desc": "Fault" } } }, "name": "Charging State", "suggestedMetric": "isCharging" }
     ]
   },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4851" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_EVSE_TYPE", "path": "Battery", "fmt": { "len": 8, "max": 12, "unit": "scalar", "map": { "0": { "val": "None", "desc": "None" }, "1": { "val": "L1", "desc": "Level 1" }, "2": { "val": "L2", "desc": "Level 2" }, "3": { "val": "DC", "desc": "DC Fast" }, "4": { "val": "Basic", "desc": "Basic" }, "5": { "val": "Hi-Lvl", "desc": "High Level" }, "11": { "val": "Fault", "desc": "Fault" } } }, "name": "Charger Type (EVSE)" }
+    ]
+  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "stateOfHealth" }
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
@@ -25,7 +30,8 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" }
+      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" },
+      { "id": "FOC_FUEL_RATE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "Energy Flow", "suggestedMetric": "fuelRate" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F442" }, "freq": 1,
@@ -48,9 +54,9 @@
       { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 10,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1505" }, "freq": 10,
     "signals": [
-      { "id": "FOC_VSS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
+      { "id": "FOC_VSS_HD", "path": "Movement", "fmt": { "len": 16, "max": 200, "div": 128, "unit": "kilometersPerHour" }, "name": "Vehicle Speed (HD)", "suggestedMetric": "speed" }
     ]
   },
   { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
