@@ -18,9 +18,29 @@
       { "id": "FOC_EVSE_TYPE", "path": "Battery", "fmt": { "len": 8, "max": 12, "unit": "scalar", "map": { "0": { "val": "None", "desc": "None" }, "1": { "val": "L1", "desc": "Level 1" }, "2": { "val": "L2", "desc": "Level 2" }, "3": { "val": "DC", "desc": "DC Fast" }, "4": { "val": "Basic", "desc": "Basic" }, "5": { "val": "Hi-Lvl", "desc": "High Level" }, "11": { "val": "Fault", "desc": "Fault" } } }, "name": "Charger Type (EVSE)" }
     ]
   },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "05A1" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_TARGET_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Target Charge Limit" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_BATT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 131.07, "div": 500, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
+    ]
+  },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484E" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_CHG_INPUT_LIMIT", "path": "Battery", "fmt": { "len": 16, "max": 327.675, "div": 200, "unit": "kilowatts" }, "name": "Charger Input Power" }
+    ]
+  },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "48C4" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_CHG_MAX_CAP", "path": "Battery", "fmt": { "len": 16, "max": 500, "div": 20, "unit": "kilowatts" }, "name": "Max Charging Power" }
+    ]
+  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "stateOfHealth" }
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D115" }, "freq": 5,
@@ -114,9 +134,19 @@
       { "id": "FOC_HIGHBEAM", "path": "Lights", "fmt": { "len": 16, "max": 2, "unit": "offon" }, "name": "Highbeam Status" }
     ]
   },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "DD01" }, "freq": 1,
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "DD01" }, "freq": 1,
     "signals": [
-      { "id": "FOC_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer" }
+      { "id": "FOC_ODO_BCM", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer (BCM)", "suggestedMetric": "odometer" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F4A6" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_ODO_PCM", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer (PCM)", "suggestedMetric": "odometer" }
+    ]
+  },
+  { "hdr": "720", "rax": "728", "cmd": { "22": "404C" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_ODO_IPC", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 10, "unit": "kilometers" }, "name": "Odometer (IPC)", "suggestedMetric": "odometer" }
     ]
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 10,
