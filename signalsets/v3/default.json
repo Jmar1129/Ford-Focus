@@ -31,7 +31,8 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "D101" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" },
-      { "id": "FOC_FUEL_RATE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "Energy Flow", "suggestedMetric": "fuelRate" }
+      { "id": "FOC_FUEL_RATE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "Energy Flow", "suggestedMetric": "fuelRate" },
+      { "id": "FOC_CHRG_SPEED", "path": "Battery", "fmt": { "len": 16, "max": 200, "min": -200, "sign": true, "add": -32768, "div": 10, "mul": 0.36, "unit": "kilowatts" }, "name": "Charging Speed (Est kW)" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F442" }, "freq": 1,
