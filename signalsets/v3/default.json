@@ -18,14 +18,14 @@
       { "id": "FOC_EVSE_TYPE", "path": "Battery", "fmt": { "len": 8, "max": 12, "unit": "scalar", "map": { "0": { "val": "None", "desc": "None" }, "1": { "val": "L1", "desc": "Level 1" }, "2": { "val": "L2", "desc": "Level 2" }, "3": { "val": "DC", "desc": "DC Fast" }, "4": { "val": "Basic", "desc": "Basic" }, "5": { "val": "Hi-Lvl", "desc": "High Level" }, "11": { "val": "Fault", "desc": "Fault" } } }, "name": "Charger Type (EVSE)" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "05A1" }, "freq": 5,
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "05A1" }, "freq": 5,
     "signals": [
       { "id": "FOC_TARGET_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Target Charge Limit" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 131.07, "div": 500, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
+      { "id": "FOC_BATT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 3000, "div": 20, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484E" }, "freq": 1,
@@ -43,12 +43,12 @@
       { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.55, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 5,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4535" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480C" }, "freq": 5,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4536" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" },
       { "id": "FOC_FUEL_RATE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "Energy Flow", "suggestedMetric": "fuelRate" },
@@ -164,9 +164,9 @@
       { "id": "FOC_HV_HEATER_AMPS", "path": "Climate", "fmt": { "len": 16, "max": 50, "div": 100, "unit": "amperes" }, "name": "Battery Heater Current" }
     ]
   },
-  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4855" }, "freq": 5,
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4836" }, "freq": 5,
     "signals": [
-      { "id": "FOC_CONN_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Charge Port Temp" }
+      { "id": "FOC_CONN_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Charger Module Temp" }
     ]
   }
 ]}
