@@ -60,17 +60,17 @@
       { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F446" }, "freq": 1,
+  { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
     "signals": [
       { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E12" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "1E12" }, "freq": 2,
     "signals": [
       { "id": "FOC_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar", "map": { "0": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "099B" }, "freq": 5,
+  { "hdr": "733", "rax": "73B", "cmd": { "22": "099B" }, "freq": 5,
     "signals": [
       { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
     ]
@@ -152,6 +152,16 @@
   { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 10,
     "signals": [
       { "id": "FOC_TPMS_WARN", "path": "Tires", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire Pressure Warning" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "HV Battery Temp", "suggestedMetric": "batteryTemperature" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4373" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_HV_HEATER_AMPS", "path": "Climate", "fmt": { "len": 16, "max": 50, "div": 100, "unit": "amperes" }, "name": "Battery Heater Current" }
     ]
   }
 ]}
