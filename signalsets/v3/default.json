@@ -19,7 +19,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 3000, "div": 30, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
+      { "id": "FOC_BATT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 350, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484E" }, "freq": 1,
@@ -32,19 +32,19 @@
       { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.28, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1101" }, "freq": 5,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "2D0C" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1102" }, "freq": 5,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "2D0D" }, "freq": 5,
     "signals": [
       { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" },
       { "id": "FOC_FUEL_RATE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "Energy Flow", "suggestedMetric": "fuelRate" },
       { "id": "FOC_CHRG_SPEED", "path": "Battery", "fmt": { "len": 16, "max": 200, "min": -200, "sign": true, "add": -32768, "div": 10, "mul": 0.36, "unit": "kilowatts" }, "name": "Charging Speed (Est kW)" }
     ]
   },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "D100" }, "freq": 1,
+  { "hdr": "720", "rax": "728", "cmd": { "22": "D100" }, "freq": 1,
     "signals": [
       { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 10, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
