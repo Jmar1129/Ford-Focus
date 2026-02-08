@@ -32,21 +32,20 @@
       { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.28, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "2D0C" }, "freq": 5,
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "480D" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "batteryVoltage" }
+      { "id": "FOC_AC_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "unit": "volts" }, "name": "Wall Voltage (AC)" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "2D0D" }, "freq": 5,
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "480E" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "HV Battery Current", "suggestedMetric": "batteryCurrent" },
-      { "id": "FOC_FUEL_RATE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "min": -65000, "sign": true, "add": -32768, "div": 10, "unit": "amperes" }, "name": "Energy Flow", "suggestedMetric": "fuelRate" },
-      { "id": "FOC_CHRG_SPEED", "path": "Battery", "fmt": { "len": 16, "max": 200, "min": -200, "sign": true, "add": -32768, "div": 10, "mul": 0.36, "unit": "kilowatts" }, "name": "Charging Speed (Est kW)" }
+      { "id": "FOC_AC_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "unit": "amperes" }, "name": "Wall Current (AC)" },
+      { "id": "FOC_CHRG_SPEED", "path": "Battery", "fmt": { "len": 16, "max": 65000, "mul": 0.24, "unit": "kilowatts" }, "name": "Charging Speed (Est kW)" }
     ]
   },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "D100" }, "freq": 1,
+  { "hdr": "720", "rax": "728", "cmd": { "22": "E001" }, "freq": 1,
     "signals": [
-      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 10, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
+      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
@@ -146,11 +145,6 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 1,
     "signals": [
       { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "HV Battery Temp", "suggestedMetric": "batteryTemperature" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4373" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_HV_HEATER_AMPS", "path": "Climate", "fmt": { "len": 16, "max": 50, "div": 100, "unit": "amperes" }, "name": "Battery Heater Current" }
     ]
   }
 ]}
