@@ -24,7 +24,7 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484E" }, "freq": 1,
     "signals": [
-      { "id": "FOC_CHG_INPUT_LIMIT", "path": "Battery", "fmt": { "len": 16, "max": 327.675, "div": 200, "unit": "kilowatts" }, "name": "Charger Input Power" }
+      { "id": "FOC_CHG_SPEED_REAL", "path": "Battery", "fmt": { "len": 16, "max": 327.675, "div": 200, "unit": "kilowatts" }, "name": "Charging Speed (Real)" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
@@ -34,18 +34,12 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "480D" }, "freq": 5,
     "signals": [
-      { "id": "FOC_AC_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "unit": "volts" }, "name": "Wall Voltage (AC)" }
+      { "id": "FOC_CHG_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "Charger Voltage" }
     ]
   },
-  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "480E" }, "freq": 5,
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "DD04" }, "freq": 1,
     "signals": [
-      { "id": "FOC_AC_AMPS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "unit": "amperes" }, "name": "Wall Current (AC)" },
-      { "id": "FOC_CHRG_SPEED", "path": "Battery", "fmt": { "len": 16, "max": 65000, "mul": 0.24, "unit": "kilowatts" }, "name": "Charging Speed (Est kW)" }
-    ]
-  },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "E001" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
+      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
     ]
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
