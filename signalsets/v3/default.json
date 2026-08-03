@@ -14,7 +14,7 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4851" }, "freq": 5,
     "signals": [
-      { "id": "FOC_EVSE_TYPE", "path": "Battery", "fmt": { "len": 8, "max": 12, "unit": "scalar", "map": { "0": { "val": "None", "desc": "None" }, "1": { "val": "L1", "desc": "Level 1" }, "2": { "val": "L2", "desc": "Level 2" }, "3": { "val": "DC", "desc": "DC Fast" }, "4": { "val": "Basic", "desc": "Basic" }, "5": { "val": "Hi-Lvl", "desc": "High Level" }, "11": { "val": "Fault", "desc": "Fault" } } }, "name": "Charger Type (EVSE)" }
+      { "id": "FOC_EVSE_TYPE", "path": "Battery", "fmt": { "len": 8, "max": 12, "unit": "scalar", "map": { "0": { "val": "None", "desc": "None" }, "1": { "val": "L1", "desc": "Level 1" }, "2": { "val": "L2", "desc": "Level 2" }, "3": { "val": "DC", "desc": "DC Fast" }, "4": { "val": "Basic", "desc": "Basic" }, "5": { "val": "Hi-Lvl", "desc": "High Level" }, "11": { "val": "Fault", "desc": "Fault" } } }, "name": "Charger Type (EVSE)", "suggestedMetric": "pluggedIn" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
@@ -29,7 +29,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.28, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "batteryHealth" }
+      { "id": "FOC_BATT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.28, "unit": "percent" }, "name": "Battery Health (SOH)", "suggestedMetric": "stateOfHealth" }
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "480D" }, "freq": 5,
@@ -39,7 +39,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "DD04" }, "freq": 1,
     "signals": [
-      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "batteryVoltage" }
+      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "starterBatteryVoltage" }
     ]
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
@@ -57,9 +57,29 @@
       { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1505" }, "freq": 10,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 2,
     "signals": [
-      { "id": "FOC_VSS_HD", "path": "Movement", "fmt": { "len": 16, "max": 200, "div": 128, "unit": "kilometersPerHour" }, "name": "Vehicle Speed (HD)", "suggestedMetric": "speed" }
+      { "id": "FOC_VSS_OPT1", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 1 (PCM)", "suggestedMetric": "speed" }
+    ]
+  },
+  { "hdr": "720", "rax": "728", "cmd": { "22": "F40D" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_VSS_OPT2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 2 (IPC)" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "F40D" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_VSS_OPT3", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 3 (ABS)" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "F40D" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_VSS_OPT4", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 4 (BCM)" }
+    ]
+  },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "F40D" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_VSS_OPT5", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 5 (SOBDM)" }
     ]
   },
   { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
