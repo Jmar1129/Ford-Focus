@@ -57,29 +57,9 @@
       { "id": "FOC_AC_STATE", "path": "Climate", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "A/C Compressor State" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F40D" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_VSS_OPT1", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 1 (PCM)", "suggestedMetric": "speed" }
-    ]
-  },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "F40D" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_VSS_OPT2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 2 (IPC)" }
-    ]
-  },
   { "hdr": "760", "rax": "768", "cmd": { "22": "F40D" }, "freq": 2,
     "signals": [
-      { "id": "FOC_VSS_OPT3", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 3 (ABS)" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "F40D" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_VSS_OPT4", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 4 (BCM)" }
-    ]
-  },
-  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "F40D" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_VSS_OPT5", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed Opt 5 (SOBDM)" }
+      { "id": "FOC_VSS_ABS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
     ]
   },
   { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
@@ -159,6 +139,31 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 1,
     "signals": [
       { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "HV Battery Temp", "suggestedMetric": "batteryTemperature" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4059" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_AMPS_OPT1", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 1 (4059)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "401C" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_AMPS_OPT2", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 2 (401C)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4811" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_AMPS_OPT3", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 3 (4811)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4814" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_AMPS_OPT4", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 4 (4814)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "404A" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_AMPS_OPT5", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 5 (404A)" }
     ]
   }
 ]}
