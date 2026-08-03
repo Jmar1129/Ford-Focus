@@ -3,19 +3,8 @@
     "signals": [
       { "id": "FOC_SOC_STD", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.85, "unit": "percent" }, "name": "SOC (Standard 1.85)", "suggestedMetric": "stateOfCharge" },
       { "id": "FOC_SOC_ADJ", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.05, "unit": "percent" }, "name": "SOC (Adjusted 2.05)", "suggestedMetric": "stateOfCharge" },
-      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.22, "unit": "miles" }, "name": "Est. Range (Heat OFF)", "suggestedMetric": "electricRange" },
-      { "id": "FOC_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.85, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4028" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_BATT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "HV Battery Current" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4113" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_CELL_VOLT_MIN", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "Min Cell Voltage" },
-      { "id": "FOC_CELL_VOLT_MAX", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "Max Cell Voltage" }
+      { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range (Heat OFF)", "suggestedMetric": "electricRange" },
+      { "id": "FOC_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.41, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
