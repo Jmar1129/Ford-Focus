@@ -141,29 +141,19 @@
       { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "HV Battery Temp", "suggestedMetric": "batteryTemperature" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4059" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 2,
     "signals": [
-      { "id": "FOC_AMPS_OPT1", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 1 (4059)" }
+      { "id": "FOC_BATT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "HV Battery Current" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "401C" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4800" }, "freq": 2,
     "signals": [
-      { "id": "FOC_AMPS_OPT2", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 2 (401C)" }
+      { "id": "FOC_BATT_TEMP_DETAILED", "path": "Battery", "fmt": { "len": 32, "max": 4294967295, "unit": "scalar" }, "name": "HV Temp (Min/Max/Avg) Test" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4811" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4840" }, "freq": 2,
     "signals": [
-      { "id": "FOC_AMPS_OPT3", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 3 (4811)" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4814" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_AMPS_OPT4", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 4 (4814)" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "404A" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_AMPS_OPT5", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amperes" }, "name": "Amps Opt 5 (404A)" }
+      { "id": "FOC_MIN_MOD_VOLT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "Min Module Voltage Test" }
     ]
   }
 ]}
