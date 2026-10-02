@@ -1,35 +1,36 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
-      { "id": "FOC_SOC_STD", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 1.85, "unit": "percent" }, "name": "SOC (Standard 1.85)", "suggestedMetric": "stateOfCharge" },
-      { "id": "FOC_SOC_ADJ", "path": "Battery", "fmt": { "len": 8, "max": 255, "div": 2.05, "unit": "percent" }, "name": "SOC (Adjusted 2.05)", "suggestedMetric": "stateOfCharge" },
+      { "id": "FOC_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 500, "unit": "percent" }, "name": "HV Battery Charge", "suggestedMetric": "stateOfCharge" },
       { "id": "FOC_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range (Heat OFF)", "suggestedMetric": "electricRange" },
       { "id": "FOC_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.41, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 4, "add": -8192, "unit": "amps" }, "name": "HV Battery Current" }
+      { "id": "FOC_BATT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps" }, "name": "HV Battery Current" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 2,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
-      { "id": "FOC_BATT_VOLTAGE", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "HV Battery Voltage" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 2,
-    "signals": [
-      { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "HV Battery Temp", "suggestedMetric": "batteryTemperature" }
+      { "id": "FOC_BATT_VOLTAGE", "path": "Battery", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "volts" }, "name": "HV Battery Voltage", "suggestedMetric": "tractionBatteryVoltage" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4800" }, "freq": 5,
     "signals": [
-      { "id": "FOC_BATT_TEMP_MULTI", "path": "Battery", "fmt": { "len": 32, "max": 4294967295, "unit": "scalar" }, "name": "HV Battery Temps (Raw 4800)" }
+      { "id": "FOC_BATT_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV Battery Temperature", "suggestedMetric": "batteryTemperature" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_BATT_TEMP_MAX", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV Battery Temp (Max)" },
+      { "id": "FOC_BATT_TEMP_MIN", "path": "Battery", "fmt": { "bix": 8, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV Battery Temp (Min)" },
+      { "id": "FOC_BATT_TEMP_AVG", "path": "Battery", "fmt": { "bix": 24, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV Battery Temp (Avg)" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4840" }, "freq": 5,
     "signals": [
-      { "id": "FOC_MIN_MOD_VOLT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "Minimum Module Voltage" }
+      { "id": "FOC_MIN_MOD_VOLT", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV Battery Min Module Voltage" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
@@ -57,19 +58,24 @@
       { "id": "FOC_CHG_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "Charger Voltage" }
     ]
   },
-  { "cmd": { "01": "42" }, "freq": 1,
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "402A" }, "freq": 5,
     "signals": [
-      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "div": 1000, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "starterBatteryVoltage" }
+      { "id": "FOC_12V_BATT", "path": "Battery", "fmt": { "len": 8, "max": 18.75, "div": 20, "add": 6, "unit": "volts" }, "name": "12V Battery Voltage", "suggestedMetric": "starterBatteryVoltage" }
     ]
   },
-  { "cmd": { "01": "31" }, "freq": 10,
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "4028" }, "freq": 5,
     "signals": [
-      { "id": "FOC_DIST_CLEAR", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance Since Codes Cleared", "suggestedMetric": "distanceSinceDTCsCleared" }
+      { "id": "FOC_12V_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "12V Battery State of Charge" }
     ]
   },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "4029" }, "freq": 5,
     "signals": [
-      { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
+      { "id": "FOC_12V_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 100, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V Battery Temperature" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "4027" }, "freq": 3600,
+    "signals": [
+      { "id": "FOC_12V_AGE", "path": "Battery", "fmt": { "len": 16, "max": 1572840, "mul": 24, "unit": "hours" }, "name": "12V Battery Age" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "DD04" }, "freq": 5,
@@ -77,24 +83,14 @@
       { "id": "FOC_CABIN_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 31.875, "div": 8, "unit": "celsius" }, "name": "In-Cabin Temperature" }
     ]
   },
+  { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
+    ]
+  },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C259" }, "freq": 2,
     "signals": [
-      { "id": "FOC_CENTRAL_LOCKS", "path": "Doors", "fmt": { "len": 8, "map": { "0": { "val": "UNLOCKED", "desc": "Unlocked" }, "2": { "val": "LOCKED", "desc": "Locked" } } }, "name": "Door Lock Status" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "4028" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_12V_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "12V Battery SOC" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "4029" }, "freq": 5,
-    "signals": [
-      { "id": "FOC_12V_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 100, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V Battery Temp" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "4027" }, "freq": 3600,
-    "signals": [
-      { "id": "FOC_12V_AGE", "path": "Battery", "fmt": { "len": 16, "max": 1572840, "mul": 24, "unit": "hours" }, "name": "12V Battery Age" }
+      { "id": "FOC_CENTRAL_LOCKS", "path": "Doors", "fmt": { "len": 8, "map": { "0": { "val": "UNLOCKED", "desc": "Unlocked" }, "2": { "val": "LOCKED", "desc": "Locked" } } }, "name": "Lock Status" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "1E12" }, "freq": 2,
@@ -132,6 +128,11 @@
       { "id": "FOC_WHEEL_SPD_RL", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Rear Left Wheel Speed" }
     ]
   },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B11" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_LAT_G", "path": "Movement", "fmt": { "len": 16, "max": 1, "min": -1, "div": 50, "sign": true, "unit": "scalar" }, "name": "Lateral Acceleration" }
+    ]
+  },
   { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
     "signals": [
       { "id": "FOC_PARKING_BRAKE", "path": "Movement", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Parking Brake" }
@@ -154,22 +155,22 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Left Pressure", "suggestedMetric": "frontLeftTirePressure" }
+      { "id": "FOC_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Left Tire Pressure", "suggestedMetric": "frontLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2814" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Right Pressure", "suggestedMetric": "frontRightTirePressure" }
+      { "id": "FOC_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front Right Tire Pressure", "suggestedMetric": "frontRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2815" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Right Pressure", "suggestedMetric": "rearRightTirePressure" }
+      { "id": "FOC_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Right Tire Pressure", "suggestedMetric": "rearRightTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2816" }, "freq": 5,
     "signals": [
-      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Left Pressure", "suggestedMetric": "rearLeftTirePressure" }
+      { "id": "FOC_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear Left Tire Pressure", "suggestedMetric": "rearLeftTirePressure" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C150" }, "freq": 3,
@@ -196,22 +197,17 @@
       { "id": "FOC_HIGHBEAM", "path": "Lights", "fmt": { "len": 16, "max": 2, "unit": "offon" }, "name": "Highbeam Status" }
     ]
   },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "DD01" }, "freq": 1,
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "DD01" }, "freq": 30,
     "signals": [
-      { "id": "FOC_ODO_BCM", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer (BCM)" }
+      { "id": "FOC_ODO_BCM", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer (Instrument Panel)", "suggestedMetric": "odometer" }
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "F4A6" }, "freq": 1,
+  { "hdr": "720", "rax": "728", "cmd": { "22": "404C" }, "freq": 30,
     "signals": [
-      { "id": "FOC_ODO_PCM", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer (PCM)" }
+      { "id": "FOC_ODO_IPC", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 10, "unit": "kilometers" }, "name": "Odometer (IPC)" }
     ]
   },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "404C" }, "freq": 1,
-    "signals": [
-      { "id": "FOC_ODO_IPC", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "div": 10, "unit": "kilometers" }, "name": "Odometer (IPC)", "suggestedMetric": "odometer" }
-    ]
-  },
-  { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 10,
+  { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 15,
     "signals": [
       { "id": "FOC_TPMS_WARN", "path": "Tires", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire Pressure Warning" }
     ]
