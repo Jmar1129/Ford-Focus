@@ -72,6 +72,31 @@
       { "id": "FOC_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient Temperature" }
     ]
   },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "DD04" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_CABIN_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 31.875, "div": 8, "unit": "celsius" }, "name": "In-Cabin Temperature" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "C259" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_CENTRAL_LOCKS", "path": "Doors", "fmt": { "len": 8, "map": { "0": { "val": "UNLOCKED", "desc": "Unlocked" }, "2": { "val": "LOCKED", "desc": "Locked" } } }, "name": "Door Lock Status" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "4028" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_12V_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "12V Battery SOC" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "4029" }, "freq": 5,
+    "signals": [
+      { "id": "FOC_12V_TEMP", "path": "Battery", "fmt": { "len": 8, "max": 100, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V Battery Temp" }
+    ]
+  },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "4027" }, "freq": 3600,
+    "signals": [
+      { "id": "FOC_12V_AGE", "path": "Battery", "fmt": { "len": 16, "max": 1572840, "mul": 24, "unit": "hours" }, "name": "12V Battery Age" }
+    ]
+  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "1E12" }, "freq": 2,
     "signals": [
       { "id": "FOC_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar", "map": { "0": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
@@ -87,6 +112,26 @@
       { "id": "FOC_VSS_ABS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle Speed", "suggestedMetric": "speed" }
     ]
   },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B06" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_WHEEL_SPD_FR", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Front Right Wheel Speed" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B07" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_WHEEL_SPD_FL", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Front Left Wheel Speed" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B08" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_WHEEL_SPD_RR", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Rear Right Wheel Speed" }
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2B09" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_WHEEL_SPD_RL", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Rear Left Wheel Speed" }
+    ]
+  },
   { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
     "signals": [
       { "id": "FOC_PARKING_BRAKE", "path": "Movement", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Parking Brake" }
@@ -95,6 +140,16 @@
   { "hdr": "760", "rax": "768", "cmd": { "22": "3201" }, "freq": 5,
     "signals": [
       { "id": "FOC_STEER_ANGLE", "path": "Movement", "fmt": { "len": 8, "max": 790, "min": -790, "mul": 6.25, "sign": true, "unit": "degrees" }, "name": "Steering Wheel Angle" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "032B" }, "freq": 1,
+    "signals": [
+      { "id": "FOC_ACCEL_PEDAL", "path": "Movement", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Accelerator Pedal Position" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "0580" }, "freq": 2,
+    "signals": [
+      { "id": "FOC_GRILL_SHUTTER", "path": "Movement", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Active Grille Shutter Position" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
